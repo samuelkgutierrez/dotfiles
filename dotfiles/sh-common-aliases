@@ -40,7 +40,7 @@ alias myctags=\
 ########################################
 # lanl
 ########################################
-alias ssh-lanl-ihpc-gate='ssh -Y samuel@ihpc-gate.lanl.gov'
+alias ssh-lanl-ihpc-gate='ssh -CY samuel@ihpc-gate.lanl.gov'
 alias ssh-lanl-wtrw='ssh -Y samuel@wtrw.lanl.gov'
 alias ssh-lanl-onyx='ssh -Y samuel@onyx-gate1.lanl.gov'
 alias ssh-lanl-wf-fey='ssh -Y samuel@wf-fey'
@@ -70,6 +70,7 @@ alias ssh-llnl-hera='ssh -p 922 samuel@hera.llnl.gov'
 alias ssh-llnl-zeus='ssh -p 922 samuel@zeus.llnl.gov'
 alias ssh-llnl-hype='ssh -p 922 samuel@hype.llnl.gov'
 alias ssh-llnl-oslic='ssh samuel@oslic.llnl.gov'
+alias ssh-llnl-rzansel='ssh -CY samuel@ihpc-gate.lanl.gov -t ssh -CY rzansel.llnl.gov'
 
 ########################################
 # vm
