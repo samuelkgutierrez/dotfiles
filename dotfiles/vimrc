@@ -99,6 +99,7 @@ set textwidth=80
 " no visual bell
 set visualbell
 set t_vb=
+set tabpagemax=100
 
 """"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 " colors
