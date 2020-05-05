@@ -61,6 +61,10 @@ Plugin 'majutsushi/tagbar.git'
 " Requires languagetool
 Plugin 'rhysd/vim-grammarous'
 Plugin 'rakr/vim-one'
+Plugin 'junegunn/fzf'
+" Requires installation of external packages:
+" - ripgrep for :Rg
+Plugin 'junegunn/fzf.vim'
 
 call vundle#end()            " required
 filetype plugin indent on    " required
