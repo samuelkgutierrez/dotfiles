@@ -62,6 +62,7 @@ alias ssh-lanl-cub-fe="ssh -Y samuel@ccstargate -t ssh -Y samuel@cub-fe.ccstar"
 alias ssh-lanl-darwin='ssh -Y samuel@darwin-fe.lanl.gov'
 alias ssh-lanl-cp-fe='ssh -Y samuel@wtrw.lanl.gov -t ssh cp-login'
 alias ssh-lanl-cp-fey='ssh -Y cp-loginy'
+alias ssh-lanl-ko-fey='ssh -Y ko-fey'
 
 ########################################
 # llnl
