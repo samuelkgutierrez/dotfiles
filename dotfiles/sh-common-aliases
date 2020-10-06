@@ -49,6 +49,9 @@ alias ssh-lanl-sn-fey='ssh -Y samuel@sn-fey'
 alias ssh-lanl-pi-fey='ssh -Y samuel@pi-fey.lanl.gov'
 alias ssh-lanl-ml-fey='ssh -Y samuel@ml-fey.lanl.gov'
 alias ssh-lanl-mu-fey='ssh -Y samuel@mu-fey.lanl.gov'
+alias ssh-lanl-fg-fey='ssh -Y samuel@fg-fey.lanl.gov'
+alias ssh-lanl-cp-fey='ssh -Y samuel@cp-loginy'
+alias ssh-lanl-ko-fey='ssh -Y samuel@ko-fey'
 alias ssh-lanl-mu-fe1='ssh -Y samuel@wtrw.lanl.gov -t ssh mu-fe1'
 alias ssh-lanl-ga-fe1='ssh -Y samuel@wtrw.lanl.gov -t ssh ga-fe1'
 alias ssh-lanl-ce-fe1='ssh -Y samuel@wtrw.lanl.gov -t ssh ce-fe1'
@@ -61,8 +64,6 @@ alias ssh-lanl-cuda='ssh -Y samuel@cuda.lanl.gov'
 alias ssh-lanl-cub-fe="ssh -Y samuel@ccstargate -t ssh -Y samuel@cub-fe.ccstar"
 alias ssh-lanl-darwin='ssh -Y samuel@darwin-fe.lanl.gov'
 alias ssh-lanl-cp-fe='ssh -Y samuel@wtrw.lanl.gov -t ssh cp-login'
-alias ssh-lanl-cp-fey='ssh -Y cp-loginy'
-alias ssh-lanl-ko-fey='ssh -Y ko-fey'
 alias ssh-lanl-ccscs='ssh -Y ccscs2.lanl.gov'
 
 ########################################
