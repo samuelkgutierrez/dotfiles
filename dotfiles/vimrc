@@ -77,6 +77,8 @@ filetype plugin indent on    " required
 """"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 " general
 """"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
+" Change leader
+let mapleader = ","
 set showcmd
 " Highlight current line
 set cursorline
@@ -146,7 +148,11 @@ colorscheme gruvbox
 " YouCompleteMe
 """"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 let g:ycm_autoclose_preview_window_after_insertion = 1
+" Turn off automatic hover preview
+let g:ycm_auto_hover = ''
 let g:ycm_confirm_extra_conf = 0
+" Map for showing hover
+nmap <leader>d <plug>(YCMHover)
 
 """"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 " VIM-Session
