@@ -30,7 +30,7 @@ function bash_shopts()
     HISTCONTROL=ignoreboth
     # for setting history length see HISTSIZE and HISTFILESIZE in bash(1)
     HISTSIZE=1000
-    HISTFILESIZE=100000
+    HISTFILESIZE=10000
     #PS1='\[\e[1;31m\]\$\[\e[0m\] '
     # Hack to fix dumb TERM in MacVIM
     if [[ "$TERM" != "dumb" ]]; then
