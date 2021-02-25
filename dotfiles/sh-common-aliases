@@ -21,7 +21,7 @@ if [[ `uname -s` == "Linux" ]]; then
 fi
 
 alias vi='vim'
-alias ll='ls -ahlF'
+alias ll='ls -ahlFtr'
 alias la='ls -A'
 alias l='ls -CF'
 alias cp='cp -i'
