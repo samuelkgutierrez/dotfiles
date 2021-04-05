@@ -11,7 +11,7 @@
 [alias]
 	co = checkout
 	st = status
-	ci = commit
+	ci = commit -s
 
 [core]
 	editor = vim

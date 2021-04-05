@@ -10,7 +10,7 @@ git config --global color.status auto
 # alias
 git config --global alias.co checkout
 git config --global alias.st status
-git config --global alias.ci commit
+git config --global alias.ci 'commit -s'
 # core
 git config --global core.editor vim
 # push
