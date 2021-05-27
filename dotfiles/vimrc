@@ -13,7 +13,7 @@ set nocompatible
 "let $VIMHOME = '/tmp/samuel/vim'
 
 """"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
-" setup vundle
+" Setup vundle
 """"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 filetype off
 
@@ -27,45 +27,35 @@ endif
 
 " let vundle manage vundle -- required!
 Plugin 'gmarik/Vundle.vim'
-" my bundles:
-" github repos
-"Plugin 'Lokaltog/vim-powerline'
+
+Plugin 'Valloric/YouCompleteMe'
+Plugin 'Valloric/MatchTagAlways'
+
+Plugin 'sheerun/vim-polyglot'
+
 Plugin 'vim-airline/vim-airline'
+Plugin 'vim-airline/vim-airline-themes'
+
 Plugin 'scrooloose/syntastic'
 Plugin 'scrooloose/nerdtree'
-Plugin 'msanders/snipmate.vim'
-Plugin 'Valloric/MatchTagAlways.git'
-Plugin 'Valloric/YouCompleteMe'
-Plugin 'rdnetto/YCM-Generator'
-Plugin 'xolox/vim-misc'
+
+Plugin 'xolox/vim-misc' " Needed by vim-session
 Plugin 'xolox/vim-session'
-Plugin 'kien/ctrlp.vim'
-Plugin 'sheerun/vim-polyglot'
-"Plugin 'Blackrush/vim-gocode'
-"Plugin 'wting/rust.vim'
-Plugin 'Shougo/vimproc.vim'
-"Plugin 'eagletmt/ghcmod-vim'
-"Plugin 'eagletmt/neco-ghc'
-Plugin 'jnurmine/Zenburn'
-"Plugin 'jiangmiao/auto-pairs'
-Plugin 'twerth/ir_black'
-Plugin 'morhetz/gruvbox'
-Plugin 'Chiel92/vim-autoformat'
-" Then cd ~/.vim/bundle/color_coded && ./configure && make
-" Also requires that VIM be built with Lua support.
-"Plugin 'jeaye/color_coded'
-"Plugin 'octol/vim-cpp-enhanced-highlight'
+
 " To Use: :TagbarToggle
 Plugin 'majutsushi/tagbar.git'
-"Plugin 'myusuf3/numbers.vim.git'
-" Writing plugins
-" Requires languagetool
-Plugin 'rhysd/vim-grammarous'
+
+Plugin 'kien/ctrlp.vim'
+" Vim Themes
+Plugin 'altercation/vim-colors-solarized'
+Plugin 'jnurmine/Zenburn'
+Plugin 'twerth/ir_black'
+Plugin 'morhetz/gruvbox'
 Plugin 'rakr/vim-one'
-Plugin 'junegunn/fzf'
+"Plugin 'junegunn/fzf'
 " Requires installation of external packages:
 " - ripgrep for :Rg
-Plugin 'junegunn/fzf.vim'
+"Plugin 'junegunn/fzf.vim'
 
 call vundle#end()            " required
 filetype plugin indent on    " required
@@ -75,7 +65,7 @@ filetype plugin indent on    " required
 "
 
 """"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
-" general
+" General Things
 """"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 " Change leader
 let mapleader = ","
@@ -84,65 +74,55 @@ set showcmd
 set cursorline
 " set cursorcolumn
 syntax on
-" fix backspace in insert mode
+" Fix backspace in insert mode
 set backspace=indent,eol,start
 "set number
-" tab settings
+" Tab settings
 set expandtab
 set ruler
 set tabstop=4
 set softtabstop=4
 set shiftwidth=4
-" indentation
+" Indentation
 set autoindent
 set smartindent
-" search
+" Search
 set incsearch " search as characters are entered
 set showmatch " highlight matching
 set hlsearch  " highlight matches
 set wrapscan  " turn on search wrap
 set ls=2
 set textwidth=80
-" no visual bell
+" No visual bell
 set visualbell
 set t_vb=
 set tabpagemax=100
+" Spelling
+set spelllang=en
 
 """"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
-" colors
+" Colors
 """"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 set t_Co=256
 
 """ gruvbox
-let g:gruvbox_contrast_dark = 'hard'
+"let g:gruvbox_contrast_dark = 'hard'
+"set background=dark
+"colorscheme gruvbox
+
+""" solarized
+" NOTE: to setup properly, you may need this:
+" https://github.com/aruhier/gnome-terminal-colors-solarized
 set background=dark
-colorscheme gruvbox
-""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
-" one
-""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
-"if (empty($TMUX))
-"    if (has("nvim"))
-"        "For Neovim 0.1.3 and 0.1.4 < https://github.com/neovim/neovim/pull/2198
-"        ">
-"        let $NVIM_TUI_ENABLE_TRUE_COLOR=1
-"    endif
-"    "For Neovim > 0.1.5 and Vim > patch 7.4.1799 <
-"    "https://github.com/vim/vim/commit/61be73bb0f965a895bfb064ea3e55476ac175162
-"    "> Based on Vim patch 7.4.1770 (`guicolors` option) <
-"    "https://github.com/vim/vim/commit/8a633e3427b47286869aa4b96f2bfc1fe65b25cd
-"    "> < https://github.com/neovim/neovim/wiki/Following-HEAD#20160511 >
-"    if (has("termguicolors"))
-"        set termguicolors
-"    endif
-"endif
-"
-"colorscheme one
-"set background=dark " for the dark version
-"
-"let g:airline_theme='one'
-""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
-" one
-""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
+colorscheme solarized
+let g:airline_theme='solarized'
+
+" Underline and highlight bad spelling
+hi clear SpellBad
+hi SpellBad ctermfg=red cterm=underline
+hi SpellCap ctermfg=red cterm=underline
+
+hi Search ctermfg=red cterm=underline
 
 """"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 " YouCompleteMe
@@ -158,6 +138,9 @@ nmap <leader>d <plug>(YCMHover)
 " VIM-Session
 """"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 :let g:session_autosave = 'no'
+" :SaveSession <name>
+" :OpenSession
+let g:session_autoload = 'no'
 
 """"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 " ctrlp
@@ -167,85 +150,28 @@ let g:ctrlp_cmd = 'CtrlP'
 let g:ctrlp_working_path_mode = 'ra'
 
 """"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
-" grammarous
-""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
-" Use system languagetool
-let g:grammarous#languagetool_cmd = 'languagetool'
-
-let g:grammarous#disabled_rules = {
-    \ '*' : ['WHITESPACE_RULE', 'EN_QUOTES'],
-    \ 'help' : ['WHITESPACE_RULE', 'EN_QUOTES', 'SENTENCE_WHITESPACE', 'UPPERCASE_SENTENCE_START'],
-    \ }
-
-""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
-" haskell things
-""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
-" <C-Space> to get suggestions
-setlocal omnifunc=necoghc#omnifunc
-let g:ycm_semantic_triggers = {'haskell' : ['.']}
-
-""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
-" tex things
+" Tex Things
 """"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 " Default to tex flavor by default
 autocmd BufRead,BufNewFile *.tex set filetype=tex
 
-""" vim-session
-" :SaveSession <name>
-" :OpenSession
-let g:session_autoload = 'no'
-
-" make file open auto-complete more sane
+" Make file open auto-complete more sane
 set wildmenu
 set wildmode=list:longest
 
-" working directory is always the same as the buffer you are editing
-" this is nice, but it confuses ctags :-(
-"autocmd BufEnter * lcd %:p:h
-"
-
-set spelllang=en
-
-" underline and highlight bad spelling
-hi clear SpellBad
-hi SpellBad ctermfg=red cterm=underline
-hi SpellCap ctermfg=red cterm=underline
-
-hi Search ctermfg=red cterm=underline
-
+""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
+" Python Things
+""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 " stop terrible default indentation of '#'s in python
 autocmd BufRead *.py inoremap # X<c-h>#
 
+""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 " TagBar Things
+""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 let g:tagbar_left=1
 
-"autocmd Filetype c,cpp,python call SetupCFamilyOptions()
-"function SetupCFamilyOptions()
-"    :TagbarOpen
-"endfunction
-
 """"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
-" omnicompletion stuff
-""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
-"set ofu=syntaxcomplete#Complete
-"if v:version >= 700
-"    " override built-in C omnicomplete with C++ OmniCppComplete plugin
-"    set omnifunc=syntaxcomplete#Complete
-"    let OmniCpp_GlobalScopeSearch   = 1
-"    let OmniCpp_DisplayMode         = 1
-"    let OmniCpp_ShowScopeInAbbr     = 0 "do not show namespace in pop-up
-"    let OmniCpp_ShowPrototypeInAbbr = 1 "show prototype in pop-up
-"    let OmniCpp_ShowAccess          = 1 "show access in pop-up
-"    let OmniCpp_SelectFirstItem     = 1 "select first item in pop-up
-"    set completeopt=menuone,menu,longest
-"endif
-
-" change the popup menu color
-"hi Pmenu ctermfg=green ctermbg=darkgrey guifg=lightgrey guibg=brown
-"hi PmenuSel ctermfg=red ctermbg=darkgrey guifg=white guibg=grey40
-
-""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
-" notes
+" Notes
 """"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 " setf - set filetype
 " folding - zf unfolding - zfa
