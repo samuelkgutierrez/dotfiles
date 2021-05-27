@@ -28,6 +28,9 @@ endif
 " let vundle manage vundle -- required!
 Plugin 'gmarik/Vundle.vim'
 
+" To generate a compile_commands.json for non-cmake systems:
+" python3 -m pip install --user compiledb
+" compiledb make
 Plugin 'Valloric/YouCompleteMe'
 Plugin 'Valloric/MatchTagAlways'
 
