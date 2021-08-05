@@ -15,5 +15,7 @@ git config --global alias.ci 'commit -s'
 git config --global core.editor vim
 # push
 git config --global push.default simple
+# pull
+git config --global pull.rebase false
 # credential
 git config --global credential.helper 'cache --timeout=43200'
