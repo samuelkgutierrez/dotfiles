@@ -12,56 +12,43 @@ set nocompatible
 """"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 "let $VIMHOME = '/tmp/samuel/vim'
 
-""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
-" Setup vundle
-""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
-filetype off
-
-if (empty($VIMHOME))
-    set rtp+=~/.vim/bundle/Vundle.vim
-    call vundle#begin()
-else " For non-standard installations.
-    set rtp+=$VIMHOME/bundle/Vundle.vim
-    call vundle#begin('$VIMHOME/bundle')
-endif
-
-" let vundle manage vundle -- required!
-Plugin 'gmarik/Vundle.vim'
+" Specify a directory for plugins
+" - For Neovim: stdpath('data') . '/plugged'
+" - Avoid using standard Vim directory names like 'plugin'
+call plug#begin('~/.vim/plugged')
 
 " To generate a compile_commands.json for non-cmake systems:
 " python3 -m pip install --user compiledb
 " compiledb make
-Plugin 'Valloric/YouCompleteMe'
-Plugin 'Valloric/MatchTagAlways'
 
-Plugin 'sheerun/vim-polyglot'
+Plug 'neoclide/coc.nvim', {'branch': 'release'}
 
-Plugin 'vim-airline/vim-airline'
-Plugin 'vim-airline/vim-airline-themes'
+Plug 'vim-airline/vim-airline'
+Plug 'vim-airline/vim-airline-themes'
 
-Plugin 'scrooloose/syntastic'
-Plugin 'scrooloose/nerdtree'
+Plug 'scrooloose/syntastic'
+Plug 'scrooloose/nerdtree'
 
-Plugin 'xolox/vim-misc' " Needed by vim-session
-Plugin 'xolox/vim-session'
+Plug 'xolox/vim-misc' " Needed by vim-session
+Plug 'xolox/vim-session'
 
 " To Use: :TagbarToggle
-Plugin 'majutsushi/tagbar.git'
+Plug 'preservim/tagbar'
 
-Plugin 'kien/ctrlp.vim'
+Plug 'kien/ctrlp.vim'
 " Vim Themes
-Plugin 'altercation/vim-colors-solarized'
-Plugin 'jnurmine/Zenburn'
-Plugin 'twerth/ir_black'
-Plugin 'morhetz/gruvbox'
-Plugin 'rakr/vim-one'
-"Plugin 'junegunn/fzf'
+Plug 'altercation/vim-colors-solarized'
+Plug 'jnurmine/Zenburn'
+Plug 'twerth/ir_black'
+Plug 'morhetz/gruvbox'
+Plug 'rakr/vim-one'
+"Plug 'junegunn/fzf'
 " Requires installation of external packages:
 " - ripgrep for :Rg
-"Plugin 'junegunn/fzf.vim'
+"Plug 'junegunn/fzf.vim'
 
-call vundle#end()            " required
-filetype plugin indent on    " required
+" Initialize plugin system
+call plug#end()
 
 "
 ":PluginInstall
