@@ -19,3 +19,6 @@ git config --global push.default simple
 git config --global pull.rebase false
 # credential
 git config --global credential.helper 'cache --timeout=43200'
+# Use difftastic for diffs
+git config --global diff.external difft
+git config --global alias.logp 'log -p --ext-diff'
