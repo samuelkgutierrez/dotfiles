@@ -2,10 +2,6 @@
 	name = Samuel K. Gutierrez
 	email = samuel@lanl.gov
 	signingkey = Samuel K. Gutierrez (LANL)
-[color]
-	branch = auto
-	diff = auto
-	status = auto
 [alias]
 	co = checkout
 	st = status
@@ -19,5 +15,7 @@
 	rebase = false
 [credential]
 	helper = cache --timeout=43200
-[diff]
-	external = difft
+[color]
+	branch = auto
+	diff = auto
+	status = auto

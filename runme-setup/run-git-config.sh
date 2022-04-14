@@ -1,4 +1,5 @@
 # sets up my .gitconfig
+echo "Setting up .gitconfig"
 # user
 git config --global user.name "Samuel K. Gutierrez"
 git config --global user.email "samuel@lanl.gov"
@@ -20,5 +21,5 @@ git config --global pull.rebase false
 # credential
 git config --global credential.helper 'cache --timeout=43200'
 # Use difftastic for diffs
-git config --global diff.external difft
-git config --global alias.logp 'log -p --ext-diff'
+#git config --global diff.external difft
+#git config --global alias.logp 'log -p --ext-diff'
