@@ -17,6 +17,8 @@ Plug 'neoclide/coc.nvim', {'branch': 'release'}
 " :CocInstall coc-pyright
 " :CocInstall coc-clangd
 
+Plug 'voldikss/vim-floaterm'
+
 " Themes
 Plug 'altercation/vim-colors-solarized'
 Plug 'jnurmine/Zenburn'
@@ -280,6 +282,13 @@ autocmd BufRead *.py inoremap # X<c-h>#
 " TagBar Things
 """"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 let g:tagbar_left=1
+
+""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
+" Floatterm settings
+""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
+let g:floaterm_keymap_new='<Leader>ft'
+let g:floaterm_keymap_toggle='<Leader>t'
+" To scroll: <C-\><C-n>
 
 """"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 " Notes
