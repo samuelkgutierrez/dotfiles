@@ -14,6 +14,8 @@ Plug 'xolox/vim-session'
 Plug 'preservim/tagbar'
 
 Plug 'neoclide/coc.nvim', {'branch': 'release'}
+" :CocInstall coc-pyright
+" :CocInstall coc-clangd
 
 " Themes
 Plug 'altercation/vim-colors-solarized'
