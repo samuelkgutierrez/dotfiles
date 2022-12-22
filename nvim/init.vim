@@ -14,6 +14,7 @@ Plug 'xolox/vim-session'
 Plug 'preservim/tagbar'
 
 Plug 'neoclide/coc.nvim', {'branch': 'release'}
+" pip install --user cmake-language-server
 " :CocInstall coc-pyright
 " :CocInstall coc-clangd
 
@@ -286,6 +287,8 @@ let g:tagbar_left=1
 """"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 " Floatterm settings
 """"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
+let g:floaterm_width=0.99
+let g:floaterm_height=0.99
 let g:floaterm_keymap_new='<Leader>ft'
 let g:floaterm_keymap_toggle='<Leader>t'
 " To scroll: <C-\><C-n>
