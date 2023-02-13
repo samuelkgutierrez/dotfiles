@@ -107,11 +107,11 @@ set nowritebackup
 
 " Having longer updatetime (default is 4000 ms = 4s) leads to noticeable
 " delays and poor user experience
-set updatetime=300
+set updatetime=200
 
 " Always show the signcolumn, otherwise it would shift the text each time
 " diagnostics appear/become resolved
-set signcolumn=yes
+"set signcolumn=yes
 
 " Use tab for trigger completion with characters ahead and navigate
 " NOTE: There's always complete item selected by default, you may want to enable
@@ -287,10 +287,12 @@ let g:tagbar_left=1
 """"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 " Floatterm settings
 """"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
-let g:floaterm_width=0.99
-let g:floaterm_height=0.99
+let g:floaterm_width=0.9
+let g:floaterm_height=0.9
 let g:floaterm_keymap_new='<Leader>ft'
 let g:floaterm_keymap_toggle='<Leader>t'
+let g:floaterm_wintype='split'
+
 " To scroll: <C-\><C-n>
 
 """"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
