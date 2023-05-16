@@ -43,6 +43,7 @@ alias myctags=\
 alias ssh-lanl-ihpc-gate='ssh -CY samuel@ihpc-gate.lanl.gov'
 alias ssh-lanl-wtrw='ssh -Y samuel@wtrw.lanl.gov'
 alias ssh-lanl-onyx='ssh -Y samuel@onyx-gate1.lanl.gov'
+alias ssh-lanl-ro-rfe='ssh -Y samuel@ro-rfe.lanl.gov'
 alias ssh-lanl-gr-rfe='ssh -Y samuel@gr-rfe.lanl.gov'
 alias ssh-lanl-wf-rfe='ssh -Y samuel@wf-rfe.lanl.gov'
 alias ssh-lanl-tt-rfe='ssh -Y samuel@tt-rfe.lanl.gov'
