@@ -73,4 +73,5 @@ $HOME/.cargo/bin:\
 $HOME/.local/bin:\
 /usr/local/bin:\
 /Users/samuel/Library/Python/3.9/bin:\
+/opt/homebrew/bin:\
 $PATH
