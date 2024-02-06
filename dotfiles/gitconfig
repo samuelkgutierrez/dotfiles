@@ -8,7 +8,7 @@
 	ci = commit -s
 	logp = log -p --ext-diff
 [core]
-	editor = vim
+	editor = nvim
 [push]
 	default = simple
 [pull]
