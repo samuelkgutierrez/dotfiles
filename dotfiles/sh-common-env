@@ -25,14 +25,14 @@ umask 027
 ################################################################################
 function on_lanl_cluster_fe()
 {
-    hostname | egrep -o '^[a-z]{2}-fe.*$' > /dev/null
+    hostname | grep -E -o '^[a-z]{2}-fe.*$' > /dev/null
     return 0
     return $?
 }
 
 function setup_cluster_env()
 {
-    local plat_name=$(hostname | egrep -o '^[a-z]{2}')
+    local plat_name=$(hostname | grep -E -o '^[a-z]{2}')
     local hpct_path=/usr/projects/hpctools/samuel
 
     export PLAT_NAME=$plat_name
