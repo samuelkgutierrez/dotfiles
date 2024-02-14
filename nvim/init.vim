@@ -45,6 +45,7 @@ set cursorline
 syntax on
 " Fix backspace in insert mode
 set backspace=indent,eol,start
+set mouse=
 "set number
 " Tab settings
 set expandtab
