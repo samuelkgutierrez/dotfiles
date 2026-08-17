@@ -82,9 +82,11 @@ set t_Co=256
 """ solarized
 " NOTE: to setup properly, you may need this:
 " https://github.com/aruhier/gnome-terminal-colors-solarized
-set background=dark
-colorscheme solarized
-let g:airline_theme='solarized'
+"set background=dark
+"colorscheme solarized
+colorscheme gruvbox
+"let g:airline_theme='solarized'
+let g:airline_theme='gruvbox'
 
 " Underline and highlight bad spelling
 hi clear SpellBad
@@ -201,7 +203,7 @@ xmap <silent> <leader>r  <Plug>(coc-codeaction-refactor-selected)
 nmap <silent> <leader>r  <Plug>(coc-codeaction-refactor-selected)
 
 " Run the Code Lens action on the current line
-nmap <leader>cl <Plug>(coc-codelens-action)
+" nmap <leader>cl <Plug>(coc-codelens-action)
 
 " Map function and class text objects
 " NOTE: Requires 'textDocument.documentSymbol' support from the language server
@@ -285,15 +287,21 @@ autocmd BufRead *.py inoremap # X<c-h>#
 " TagBar Things
 """"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 let g:tagbar_left=1
+"let g:tagbar_width=90
 
 """"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 " Floatterm settings
 """"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 let g:floaterm_width=0.9
 let g:floaterm_height=0.9
-let g:floaterm_keymap_new='<Leader>ft'
-let g:floaterm_keymap_toggle='<Leader>t'
 let g:floaterm_wintype='split'
+let g:floaterm_title='$1/$2'   " title shown in the floating window border
+
+nnoremap <silent> <Leader>t :FloatermToggle term1<CR>
+tnoremap <silent> <Leader>t <C-\><C-n>:FloatermToggle term1<CR>
+
+nnoremap <silent> <Leader>c :FloatermToggle term2<CR>
+tnoremap <silent> <Leader>c <C-\><C-n>:FloatermToggle term2<CR>
 
 " To scroll: <C-\><C-n>
 
