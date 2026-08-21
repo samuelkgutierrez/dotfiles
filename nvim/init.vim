@@ -45,7 +45,8 @@ set cursorline
 syntax on
 " Fix backspace in insert mode
 set backspace=indent,eol,start
-set mouse=
+"set mouse=
+set mouse=a
 "set number
 " Tab settings
 set expandtab
@@ -82,7 +83,7 @@ set t_Co=256
 """ solarized
 " NOTE: to setup properly, you may need this:
 " https://github.com/aruhier/gnome-terminal-colors-solarized
-"set background=dark
+set background=dark
 "colorscheme solarized
 colorscheme gruvbox
 "let g:airline_theme='solarized'
