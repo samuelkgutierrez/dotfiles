@@ -45,8 +45,17 @@ set cursorline
 syntax on
 " Fix backspace in insert mode
 set backspace=indent,eol,start
-"set mouse=
-set mouse=a
+" Default mouse state.
+set mouse=
+" Toggle mouse support with Leader+m
+nnoremap <silent> <Leader>m :call ToggleMouse()<CR>
+function! ToggleMouse()
+    if &mouse == 'a'
+        set mouse=
+    else
+        set mouse=a
+    endif
+endfunction
 "set number
 " Tab settings
 set expandtab
