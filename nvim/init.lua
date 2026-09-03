@@ -57,10 +57,8 @@ require("lazy").setup({
     { "scrooloose/nerdtree" },
 
     { "xolox/vim-session", dependencies = { "xolox/vim-misc" } },
-
     -- To Use: :TagbarToggle
     { "preservim/tagbar" },
-
     -- coc.nvim
     -- pip install --user cmake-language-server
     -- :CocInstall coc-pyright
@@ -68,13 +66,24 @@ require("lazy").setup({
     { "neoclide/coc.nvim", branch = "release" },
 
     { "voldikss/vim-floaterm" },
-
     -- Themes
     { "altercation/vim-colors-solarized" },
     { "jnurmine/Zenburn" },
     { "twerth/ir_black" },
-    { "morhetz/gruvbox" },
-    { "rakr/vim-one" },
+    {
+        "ellisonleao/gruvbox.nvim",
+        config = function()
+            require("gruvbox").setup({
+                contrast = "hard",
+            })
+        end
+    },
+    {
+        "rakr/vim-one"
+    },
+    {
+        "rebelot/kanagawa.nvim"
+    },
     { "folke/tokyonight.nvim" },
 }, {
     -- keep default lazy.nvim behavior; use :Lazy to manage plugins
@@ -150,7 +159,8 @@ require("tokyonight").setup({
     end,
 })
 
-vim.cmd[[colorscheme tokyonight-night]]
+--vim.cmd.colorscheme("tokyonight-night")
+vim.cmd.colorscheme("kanagawa-dragon")
 
 --------------------------------------------------------------------------------
 -- lualine
