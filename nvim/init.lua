@@ -130,6 +130,26 @@ vim.keymap.set("n", "<Leader>m", toggle_mouse, { silent = true })
 --------------------------------------------------------------------------------
 -- Colors
 --------------------------------------------------------------------------------
+require("tokyonight").setup({
+    on_highlights = function(highlights, colors)
+        -- 1. Active Tab Text (Foreground) and Background
+        highlights.TabLineSel = {
+            fg = colors.orange,
+            bg = colors.bg_statusline,
+            bold = true,
+        }
+        -- 2. Inactive Tab Text (Foreground) and Background
+        highlights.TabLine = {
+            fg = colors.cyan,
+            bg = colors.bg_dark,
+        }
+        -- 3. The empty space fill of the tab bar
+        highlights.TabLineFill = {
+            bg = colors.bg_dark
+        }
+    end,
+})
+
 vim.cmd[[colorscheme tokyonight-night]]
 
 --------------------------------------------------------------------------------
@@ -197,7 +217,7 @@ vim.g.coc_global_extensions = {
     'coc-pyright',
     'coc-rust-analyzer',
     'coc-go',
-    'coc-clangd' 
+    'coc-clangd'
 }
 
 vim.opt.backup = false
@@ -227,13 +247,14 @@ keyset('i', '<S-TAB>', [[coc#pum#visible() ? coc#pum#prev(1) : "\<C-h>"]], opts)
 vim.keymap.set('i', '<CR>', [[coc#pum#visible() ? coc#pum#confirm() : "\<CR>"]], { expr = true, silent = true })
 
 -- Diagnostics and code navigation
-keyset('n', '[g', '<Plug>(coc-diagnostic-prev)', { silent = true })
-keyset('n', ']g', '<Plug>(coc-diagnostic-next)', { silent = true })
-keyset('n', 'gd', '<Plug>(coc-definition)', { silent = true })
-keyset('n', 'gy', '<Plug>(coc-type-definition)', { silent = true })
-keyset('n', 'gi', '<Plug>(coc-implementation)', { silent = true })
-keyset('n', 'gr', '<Plug>(coc-references)', { silent = true })
+keyset('n', '[g',         '<Plug>(coc-diagnostic-prev)', { silent = true })
+keyset('n', ']g',         '<Plug>(coc-diagnostic-next)', { silent = true })
+keyset('n', 'gd',         '<Plug>(coc-definition)', { silent = true })
+keyset('n', 'gy',         '<Plug>(coc-type-definition)', { silent = true })
+keyset('n', 'gi',         '<Plug>(coc-implementation)', { silent = true })
+keyset('n', 'gr',         '<Plug>(coc-references)', { silent = true })
 keyset('n', '<leader>rn', '<Plug>(coc-rename)', { silent = true })
+keyset('n', '<leader>qf', '<Plug>(coc-fix-current)', {silent = true})
 
 --------------------------------------------------------------------------------
 -- VIM-Session
