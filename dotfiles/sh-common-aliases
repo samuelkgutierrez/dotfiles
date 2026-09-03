@@ -9,7 +9,21 @@ alias coplfs='svn co https://plfs.svn.sourceforge.net/svnroot/plfs/trunk '
 alias coloba='cvs -d:ext:samuel@sf4.lanl.gov:/cvsroot/loba co loba'
 alias coompi='svn co https://svn.open-mpi.org/svn/ompi/trunk '
 
-# TODO fix all the os specific code
+if command -v eza >/dev/null 2>&1; then
+    # Replace standard ls with eza
+    alias ls='eza --icons=auto --group-directories-first'
+    # Standard list view with extra metadata (replaces ls -l)
+    alias ll='eza -lh --icons=auto --group-directories-first --git'
+    # All files, including hidden ones (replaces ls -a)
+    alias la='eza -lah --icons=auto --group-directories-first --git'
+    # Tree view of directories
+    alias lt='eza --tree --level=2 --icons=auto'
+else
+    alias ll='ls -ahlFtr'
+    alias la='ls -A'
+    alias lt='tree'
+fi
+
 if [[ `uname -s` == "Darwin" ]]; then
     alias ls='ls -G'
 else
@@ -21,9 +35,6 @@ if [[ `uname -s` == "Linux" ]]; then
 fi
 
 alias vi='vim'
-alias ll='ls -ahlFtr'
-alias la='ls -A'
-alias l='ls -CF'
 alias cp='cp -i'
 alias mv='mv -i'
 alias grep='grep --color=auto'
