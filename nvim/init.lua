@@ -94,7 +94,7 @@ require("lazy").setup({
 --------------------------------------------------------------------------------
 vim.opt.showcmd = true
 -- Highlight current line
-vim.opt.cursorline = true
+vim.opt.cursorline = false
 -- vim.opt.cursorcolumn = true
 vim.cmd("syntax on")
 -- Default mouse state.
@@ -161,6 +161,32 @@ require("tokyonight").setup({
 
 --vim.cmd.colorscheme("tokyonight-night")
 vim.cmd.colorscheme("kanagawa-dragon")
+
+--------------------------------------------------------------------------------
+-- Coc: show errors in the active colorscheme's warn color (instead of red)
+--------------------------------------------------------------------------------
+local coc_error_fallback = "#FF9E3B"
+
+local function resolve_coc_error_color()
+    local ok, hl = pcall(vim.api.nvim_get_hl, 0, { name = "DiagnosticWarn", link = false })
+    if ok and hl and hl.fg then
+        return string.format("#%06x", hl.fg)
+    end
+    return coc_error_fallback
+end
+
+local function coc_error_highlights()
+    local color = resolve_coc_error_color()
+    vim.api.nvim_set_hl(0, "CocErrorSign",        { fg = color })
+    vim.api.nvim_set_hl(0, "CocErrorVirtualText", { fg = color })
+    vim.api.nvim_set_hl(0, "CocErrorFloat",       { fg = color })
+    vim.api.nvim_set_hl(0, "CocErrorHighlight",   { sp = color, undercurl = true })
+end
+
+coc_error_highlights()
+vim.api.nvim_create_autocmd("ColorScheme", {
+    callback = coc_error_highlights,
+})
 
 --------------------------------------------------------------------------------
 -- lualine
