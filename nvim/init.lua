@@ -53,7 +53,7 @@ require("lazy").setup({
         dependencies = { 'nvim-tree/nvim-web-devicons' }
     },
 
-    { "dense-analysis/ale" },
+    --{ "dense-analysis/ale" },
     { "scrooloose/nerdtree" },
 
     { "xolox/vim-session", dependencies = { "xolox/vim-misc" } },
