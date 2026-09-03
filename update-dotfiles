@@ -19,8 +19,7 @@
 
 # author: Samuel K. Gutierrez
 
-APP_NAME="update-dotfile"
-BVERBOSE=0
+BVERBOSE=1
 
 # FIXME add optarg to change this
 #dot_update_action="copy"
@@ -60,13 +59,13 @@ function get_dotfile_dir()
 
     if [[ -h "${dist_path}" ]]; then
         while [[ -h "${dist_path}" ]]; do
-            dist_path=`readlink "${dist_path}"`
+            dist_path=$(readlink "${dist_path}")
         done
     fi
     pushd . > /dev/null
-    cd `dirname ${dist_path}` > /dev/null
+    cd "$(dirname "${dist_path}")" > /dev/null || exit
     dist_path="$PWD"
-    popd  > /dev/null
+    popd  > /dev/null || exit
 
     echo "$dist_path"
 }
@@ -77,7 +76,8 @@ function get_dotfile_dir()
 function build_dotfile_list()
 {
     local dist_dir="$1"
-    local list=`ls -1 $dist_dir/dotfiles/`
+    local list
+    list=$(ls -1 "$dist_dir/dotfiles/")
     echo "$list"
 }
 
@@ -87,7 +87,8 @@ function build_dotfile_list()
 function build_runme_setup_list()
 {
     local dist_dir="$1"
-    local list=`ls -1 $dist_dir/runme-setup/`
+    local list
+    list=$(ls -1 "$dist_dir/runme-setup/")
     echo "$list"
 }
 
@@ -98,7 +99,7 @@ function status_update()
 {
     local outstr="$1"
 
-    if [[ 1 == $BVERBOSE ]]; then
+    if [[ 1 == "$BVERBOSE" ]]; then
         echo "$outstr"
     fi
 }
@@ -114,18 +115,17 @@ function update_dot()
     status_update "#+> updating links..."
 
     if [[ -z "$src" || -z "$dest" ]]; then
-        "update_dot: bad parameter -- cannot continue."
+        echo "update_dot: bad parameter: cannot continue."
         return 1
     fi
     if [[ ! -e "$src" ]]; then
-        echo "update_dot: cannot update link -- $src does not exist."
+        echo "update_dot: cannot update link: $src does not exist."
         return 1
     fi
     if [[ -e "$dest" ]]; then
         status_update "#++> removing $dest"
-        rm -rf "$dest"
-        if [[ 0 != $? ]]; then
-            echo "update_dot: rm -rf $dest failed -- cannot continue."
+        if ! rm -rf "$dest"; then
+            echo "update_dot: rm -rf $dest failed: cannot continue."
             return 1
         fi
     fi
@@ -148,7 +148,7 @@ function letsdothis()
 {
     echo "are you sure you want to run me..? i delete & overwrite things..."
     echo "are you cool with this? [yes | no]"
-    read answer
+    read -r answer
     if [[ $answer == "yes" ]]; then
         return 0
     fi
@@ -162,24 +162,22 @@ function letsdothis()
 ################################################################################
 function main()
 {
-    local dist_path=$(get_dotfile_dir)
+    local dist_path
+    dist_path=$(get_dotfile_dir)
     # everything okay?  & make sure the user knows that i can create tears
-    sanity "$dist_path" && letsdothis
-    if [[ 0 == $? ]]; then
+    if sanity "$dist_path" && letsdothis; then
         # if we are here, let the madness begin
-        dot_files=`build_dotfile_list "$dist_path"`
-        for dot_file in `echo "$dot_files"`; do
-            update_dot "$dist_path/dotfiles/$dot_file" ~/."$dot_file"
-            if [[ 0 != $? ]]; then
+        dot_files=$(build_dotfile_list "$dist_path")
+        for dot_file in $dot_files; do
+            if ! update_dot "$dist_path/dotfiles/$dot_file" ~/."$dot_file"; then
                 echo "update_dot failure!"
                 return 1
             fi
         done
 
-        runme_setup_files=`build_runme_setup_list "$dist_path"`
-        for runme_setup_file in `echo "$runme_setup_files"`; do
-             /bin/bash "$dist_path/runme-setup/$runme_setup_file"
-             if [[ 0 != $? ]]; then
+        runme_setup_files=$(build_runme_setup_list "$dist_path")
+        for runme_setup_file in $runme_setup_files; do
+            if ! /bin/bash "$dist_path/runme-setup/$runme_setup_file"; then
                  echo "runme_setup_files failure!"
                  return 1
              fi

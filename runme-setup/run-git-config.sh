@@ -13,7 +13,7 @@ git config --global alias.co checkout
 git config --global alias.st status
 git config --global alias.ci 'commit -s'
 # core
-git config --global core.editor vim
+git config --global core.editor nvim
 # push
 git config --global push.default simple
 # pull
