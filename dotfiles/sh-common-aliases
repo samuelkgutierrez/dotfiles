@@ -13,9 +13,9 @@ if command -v eza >/dev/null 2>&1; then
     # Replace standard ls with eza
     alias ls='eza --icons=auto --group-directories-first'
     # Standard list view with extra metadata (replaces ls -l)
-    alias ll='eza -lh --icons=auto --group-directories-first --git'
+    alias ll='eza -l --sort=modified --git'
     # All files, including hidden ones (replaces ls -a)
-    alias la='eza -lah --icons=auto --group-directories-first --git'
+    alias la='eza -laa --sort=modified --git'
     # Tree view of directories
     alias lt='eza --tree --level=2 --icons=auto'
 else

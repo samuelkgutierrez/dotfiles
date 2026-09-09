@@ -118,6 +118,8 @@ vim.opt.textwidth = 80
 -- No visual bell
 vim.opt.visualbell = true
 vim.opt.belloff = "all"
+-- Clipboard
+vim.opt.clipboard = "unnamedplus"
 
 vim.opt.tabpagemax = 100
 -- Spelling
