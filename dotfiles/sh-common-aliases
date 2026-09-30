@@ -17,7 +17,7 @@ if command -v eza >/dev/null 2>&1; then
     # All files, including hidden ones (replaces ls -a)
     alias la='eza -laa --sort=modified --git'
     # Tree view of directories
-    alias lt='eza --tree --level=2 --icons=auto'
+    alias lt='eza --tree --icons=auto'
 else
     alias ll='ls -ahlFtr'
     alias la='ls -A'
